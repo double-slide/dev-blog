@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+  # TODO add authentication once dotenv setup 
+  # http_basic_authenticate_with name: 
+
   def index
     @articles = Article.all 
   end

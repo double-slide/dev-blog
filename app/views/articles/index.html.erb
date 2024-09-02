@@ -1,6 +1,9 @@
 <h1>Articles</h1>
 
 This blog has <%= Article.public_count %> articles and counting!
+<br>
+
+Does this work: <%= ENV['TEST'] %>
 
 <ul>
     <% @articles.each do |article| %>

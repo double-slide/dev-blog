@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
-  # TODO add authentication once dotenv setup 
-  # http_basic_authenticate_with name: 
+  http_basic_authenticate_with name: ENV['USER'], password: ENV['PASSWORD'], except: [:index, :show]
 
   def index
     @articles = Article.all 

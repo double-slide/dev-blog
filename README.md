@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on Rails app for blogging.
 
-Things you may want to cover:
+Runs on Rails 7, and currently using a default SQLite3 database for local development.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To get started locally
+```sh
+bundle install # installs required gems
+bundle exec rails db:migrate # migrate database to latest schema
+bundle exec rails s # starts the server listening on port 3000
+```

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/welcome'
   root "articles#index"
  
   # below is only for GET, we can instead use the resources method to map the conventional routes (CRUD)

@@ -4,6 +4,7 @@
 
 <ul>
   <li><%= link_to "Edit", edit_article_path(@article) %></li>
+  <%= button_to "Edit", action: false %>
   <li><%= link_to "Destroy", article_path(@article), data: {
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"

@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get 'sign_up', to: 'users#new', as: :sign_up
   post 'sign_up', to: 'users#create'
 
-  # get "articles#index"
- 
+  get "articles#index"
+
+  get 'confirmations/confirm_email/:confirmation_token', to: 'confirmations#confirm_email'
 
 
   # below is only for GET, we can instead use the resources method to map the conventional routes (CRUD)

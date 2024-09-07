@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
-  get 'home/welcome'
-  root "articles#index"
+  root 'home#welcome'
+
+  # get '/', to: 'home#welcome'
+
+  get 'sign_up', to: 'users#new', as: :sign_up
+  post 'sign_up', to: 'users#create'
+
+  # get "articles#index"
  
+
+
   # below is only for GET, we can instead use the resources method to map the conventional routes (CRUD)
   # get "/articles", to: "articles#index"
 

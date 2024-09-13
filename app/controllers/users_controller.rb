@@ -7,9 +7,10 @@ class UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
+            @user.send_confirmation_email!
             redirect_to root_path, notice: 'A confirmation notice has been sent to you'
         else
-            render :new, status: unproceessable_entity
+            render :new, status: unprocessable_entity
         end
     end
 

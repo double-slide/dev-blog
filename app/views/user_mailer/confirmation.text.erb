@@ -1,2 +1,2 @@
 Hey there,
-Thanks for signing up. Please <%= link_to 'confirm your email', email_confirmation_url(@confirmation_token) %>.
+Thanks for signing up. Please <%= link_to 'confirm your email', confirm_email_url(confirmation_token: @confirmation_token) %>.

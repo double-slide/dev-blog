@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/index'
   root 'home#welcome'
 
   # get '/', to: 'home#welcome'
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
 
   get 'confirmations/confirm_email/:confirmation_token', to: 'confirmations#confirm_email', as: :confirm_email
 
+  get 'login', to: 'sessions#new', as: :login
+  # post 'login', to: 'sessions#create'
+  # delete 'logout', to: 'sessions#destroy', as: :logout
 
   # below is only for GET, we can instead use the resources method to map the conventional routes (CRUD)
   # get "/articles", to: "articles#index"

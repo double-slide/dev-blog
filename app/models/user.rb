@@ -22,6 +22,6 @@ class User < ApplicationRecord
       UserMailer.confirmation(self, confirmation_token).deliver_now
     end
 
-    # validates :email, presence: true
-    # validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
+    validates :email, presence: true
+    validates_format_of :email, with: URI::MailTo::EMAIL_REGEXP
 end

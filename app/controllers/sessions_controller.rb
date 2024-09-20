@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @user = User.find_by(params[:user][:email].downcase)
+        @user = User.find_by(email: params[:user][:email].downcase)
         if @user
             if @user.authenticate(params[:user][:password])
                 reset_session

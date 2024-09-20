@@ -4,10 +4,20 @@
   <div class="flex items-center space-x-4">
     <%= image_tag 'navbar_logo.png', alt: 'Logo', class: 'h-8 w-8' %>
     <span class="text-white font-semibold text-lg">Company</span>
+      <% if user_signed_in? %>
+        <a>
+          Welcome, <%= current_user.email %>
+        </a>
+        <%= link_to "Logout", logout_path, data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to "Sign up", sign_up_path %>
+        <%= link_to "Login", login_path %>
+      <% end %>
   </div>
   
   <!-- Right side: Links -->
   <div class="flex space-x-6">
+    <%= link_to "Articles", articles_path%>
     <a class="text-white hover:text-gray-200">
       <%= link_to "home", root_path %>
     </a>

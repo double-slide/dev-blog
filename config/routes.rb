@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'dashboard/index'
-  root 'home#welcome'
+  # root 'home#welcome'
+  root "articles#index"
 
   # get '/', to: 'home#welcome'
 
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   # get 'articles' to: 'articles#index', as: :articles
 
   get 'confirmations/confirm_email/:confirmation_token', to: 'confirmations#confirm_email', as: :confirm_email
+
+  get '404', :to => 'application#page_not_found'
 
   get 'login', to: 'sessions#new', as: :login
   post 'login', to: 'sessions#create'
@@ -25,5 +28,4 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
 end

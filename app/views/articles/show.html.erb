@@ -1,19 +1,33 @@
-<h1><%= @article.title %></h1>
+<div class="article">
+  <div class="title">
+    <h1><%= @article.title %></h1>
+    <div class="date">
+      <%= @article.created_at.to_date %>
+    </div>
+  </div>
 
-<p><%= markdown(@article.body) %></p>
+  <div class="body">
+    <p><%= markdown(@article.body) %></p>
+  </div>
 
-<ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <%# <%= button_to "Edit", action: false %> %>
-  <li><%= link_to "Destroy", article_path(@article), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %></li>
-</ul>
+  <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/2/22/Everest%2C_Nepal%2C_Himalayas.jpg", class: "image") %>
+  <div class="buttons">
+    <div class="button">
+      <%= button_to "Edit", edit_article_url(@article), method: :get %>
+    </div>
+    <div class="button">
+      <%= button_to "Delete", edit_article_url(@article), method: :get, data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      }
+    %>
+    </div>
+  </div>
+  
 
-<h2>Comments</h2>
-<%= render @article.comments %>
-
-<h2>Add a comment:</h2>
-<%= render "comments/form", article: @article %>
-
+  <%# <h2>Comments</h2> %>
+  <%# <%= render @article.comments %>
+  <%#  %>
+  <%# <h2>Add a comment:</h2> %>
+  <%# <%= render "comments/form", article: @article %>
+</div>

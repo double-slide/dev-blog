@@ -138,12 +138,14 @@
 
   & .image-container {
     display: flex;
+    width: fit-content;
     justify-content: center;
     margin-bottom: 20px;
   }
 
   & .image {
-    width: 660px;
+    width: 100%;
+    padding: 0px 20px;
   }
    }
 

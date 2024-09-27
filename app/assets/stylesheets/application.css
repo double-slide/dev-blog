@@ -103,6 +103,12 @@
     }
   }
 
+  & .image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
   & .image {
     width: 660px;
   }
@@ -112,7 +118,7 @@
   & .body {
     padding: 0px 20px;
     font-size: 1.1em;
-    min-height: 400px;
+    min-height: 200px;
   }
 
   /* & .comments {

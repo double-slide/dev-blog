@@ -10,7 +10,12 @@
     <p><%= markdown(@article.body) %></p>
   </div>
 
-  <%= image_tag("https://upload.wikimedia.org/wikipedia/commons/2/22/Everest%2C_Nepal%2C_Himalayas.jpg", class: "image") %>
+  <div class="image-container">
+    <%= image_tag url_for(@article.image), class: "image" unless !@article.image.present? %>
+  </div>
+
+  status: <%= @article.status %>
+
   <div class="buttons">
     <div class="button">
       <%= button_to "Edit", edit_article_url(@article), method: :get %>

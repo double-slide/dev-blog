@@ -21,7 +21,12 @@
       <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %><br>
     </div>
     <div>
+    <% if user_signed_in? %>
         <%= form.submit %>
+    <% else %>
+        Sign in to save article
+    <% end %>
+
     </div>
   </div>
 <% end %>

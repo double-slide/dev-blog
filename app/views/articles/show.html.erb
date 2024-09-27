@@ -16,18 +16,23 @@
 
   status: <%= @article.status %>
 
-  <div class="buttons">
-    <div class="button">
-      <%= button_to "Edit", edit_article_url(@article), method: :get %>
+  <% if user_signed_in? && current_user = @article.user %>
+    <div class="buttons">
+      <div class="button">
+        <%= button_to "Edit", edit_article_url(@article), method: :get %>
+      </div>
+      <div class="button">
+        <%= button_to "Delete", edit_article_url(@article), method: :get, data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        }
+      %>
+      </div>
     </div>
-    <div class="button">
-      <%= button_to "Delete", edit_article_url(@article), method: :get, data: {
-        turbo_method: :delete,
-        turbo_confirm: "Are you sure?"
-      }
-    %>
-    </div>
-  </div>
+  <% else %>
+      Sign in to do stuff
+  <% end %>
+
   
 
   <%# <h2>Comments</h2> %>

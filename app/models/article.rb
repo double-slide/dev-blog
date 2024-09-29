@@ -12,4 +12,13 @@ class Article < ApplicationRecord
   validates :title, presence: true, length: { maximum: 40 }
   validates :user, presence: true
   validates :body, presence: true, length: { minimum: 10 }
+  validate :user_post_level_must_be_sufficient
+
+  private
+
+  def user_post_level_must_be_sufficient
+    if user.post_level < 3
+      errors.add(:base, "Current user is not allowed to post")
+    end
+  end
 end

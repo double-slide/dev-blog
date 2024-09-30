@@ -5,6 +5,7 @@ module Authenticated
         before_action :current_user
         helper_method :current_user
         helper_method :user_signed_in?
+        helper_method :user_able_to_post?
     end
 
     def current_user
@@ -15,5 +16,9 @@ module Authenticated
 
     def user_signed_in?
         current_user.present?
+    end
+
+    def user_able_to_post?
+        current_user.post_level >= 3
     end
 end

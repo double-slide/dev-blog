@@ -14,13 +14,18 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.new(article_params)
+    if current_user
+      @article = current_user.articles.new(article_params)
 
-    if @article.save
-      redirect_to @article
+      if @article.save
+        redirect_to @article
+      else
+        render :new, status: :unprocessable_entity
+      end
     else
       render :new, status: :unprocessable_entity
     end
+
   end
 
   def edit

@@ -17,14 +17,14 @@
       <%= form.file_field :image %>
     </div>
     <div>
-      <%= form.label :status %><br>
+      <%= form.label :status %>
       <%= form.select :status, Visible::VALID_STATUSES, selected: article.status || 'public' %><br>
     </div>
     <div>
-    <% if user_signed_in? %>
-        <%= form.submit %>
+    <% if user_signed_in? && user_able_to_post?%>
+      <%= form.submit %>
     <% else %>
-        Sign in to save article
+      Whoops, you don't have permission to post! Contact the site admin.
     <% end %>
 
     </div>

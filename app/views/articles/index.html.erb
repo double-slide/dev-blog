@@ -1,19 +1,44 @@
 <div class="article-index">
+<% if user_signed_in? %>
+
+<%# if signed in, list and allow access to public and private titles %>
   <% @articles.each do |article| %>
-    <div class="index-box">
-      <% if article.current_user_is_author?(current_user) %>
-        <h4 class="title-container">
-          <%= link_to article.title, article, class: "title" %>
-        </h4>
-      <% else %>
-        <h4 class="tooltip-container">
-        <div class="no-access"><%= article.title %></div>
-            <%= content_tag :div, "Log in to view", class: "tooltip-text"%>
-        </h4>
-      <% end %>
-      <div class="date"><%= article.created_at.to_date %></div>
-    </div>
+    <% if (article.article_is_public? || article.article_is_private?) || article.current_user_is_author?(current_user) %>
+      <div class="index-box">
+          <h4 class="title-container">
+            <%= link_to article.title, article, class: "title" %>
+          </h4>
+        <div class="date"><%= article.created_at.to_date %></div>
+      </div>
+    <% end %>
   <% end %>
+
+<% else %>
+
+<%# if not signed in, list public and private titles, but block private access %>
+  <% @articles.each do |article| %>
+    <% if (article.article_is_public? || article.article_is_private?) %>
+      <div class="index-box">
+        <% if article.article_is_public? %>
+          <h4 class="title-container">
+            <%= link_to article.title, article, class: "title" %>
+          </h4>
+        <% else %>
+          <h4 class="tooltip-container">
+          <div class="no-access"><%= article.title %></div>
+              <%= content_tag :div, "Log in to view", class: "tooltip-text"%>
+          </h4>
+        <% end %>
+        <div class="date"><%= article.created_at.to_date %></div>
+      </div>
+    <% end %>
+  <% end %>
+
+
+
+
+<% end %>
+
 
   <div class="buttons">
     <%= link_to "New Article", new_article_path, class: "action-button new-article" %>

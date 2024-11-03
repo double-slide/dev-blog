@@ -14,11 +14,11 @@ class Article < ApplicationRecord
   validates :body, presence: true, length: { minimum: 10 }
   validate :user_post_level_must_be_sufficient
 
-  def article_is_public?
+  def is_public?
     self.status == 'public'
   end
   
-  def article_is_private?
+  def is_private?
     self.status == 'private'
   end
 

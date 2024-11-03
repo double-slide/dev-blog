@@ -56,6 +56,15 @@
   color: white;
 }
 
+.nav-button-linkedin {
+  background-color: rgb(72, 184, 129);
+  margin: 15px 10px;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+}
+
 .article {
   max-width: 700px;
   margin: 20px auto;

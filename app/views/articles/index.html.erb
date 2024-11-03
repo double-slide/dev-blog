@@ -3,7 +3,7 @@
 
 <%# if signed in, list and allow access to public and private titles %>
   <% @articles.each do |article| %>
-    <% if (article.article_is_public? || article.article_is_private?) || article.current_user_is_author?(current_user) %>
+    <% if (article.is_public? || article.is_private?) || article.current_user_is_author?(current_user) %>
       <div class="index-box">
           <h4 class="title-container">
             <%= link_to article.title, article, class: "title" %>
@@ -17,9 +17,9 @@
 
 <%# if not signed in, list public and private titles, but block private access %>
   <% @articles.each do |article| %>
-    <% if (article.article_is_public? || article.article_is_private?) %>
+    <% if (article.is_public? || article.is_private?) %>
       <div class="index-box">
-        <% if article.article_is_public? %>
+        <% if article.is_public? %>
           <h4 class="title-container">
             <%= link_to article.title, article, class: "title" %>
           </h4>

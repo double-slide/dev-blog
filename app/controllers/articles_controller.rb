@@ -7,6 +7,12 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find(params[:id])
+
+    if @article.is_public? || (@article.is_private? && current_user)
+      @article
+    else
+      redirect_to root_path
+    end
   end
 
   def new

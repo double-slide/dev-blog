@@ -2,8 +2,8 @@
 FROM ruby:3.2.2
 
 # Add application code
-ADD . /docker-demo
-WORKDIR /docker-demo
+ADD . /dev-blog
+WORKDIR /dev-blog
 
 # Install utilities
 RUN apt-get update

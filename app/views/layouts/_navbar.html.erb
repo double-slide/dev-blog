@@ -1,11 +1,10 @@
 <div class="navbar">
   
   <div class="left">
-  <div>
-  </div>
-    <%= image_tag "navbar_logo.png", alt: "Logo", class: "logo" %>
-    <span class="title">Tired Legs</span>
-    <%= link_to "Articles", articles_path, class: "nav-button"%>
+      <%= link_to articles_path, class: "home-logo no-style" do %>
+      <%= image_tag "navbar_logo.png", alt: "Logo", class: "logo" %>
+      <span class="title">Tired Legs</span>
+    <% end %>
   </div>
   
   <div class="right">
@@ -15,7 +14,6 @@
       </a>
       <%= link_to "Logout", logout_path, data: { turbo_method: :delete }, class: "nav-button" %>
     <% else %>
-      <%= link_to "Sign up", sign_up_path, class: "nav-button" %>
       <%= link_to "Login", login_path, class: "nav-button" %>
     <% end %>
 

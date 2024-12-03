@@ -4,9 +4,11 @@
         Email
         <%= form.email_field :email, required: true %>
     </Label>
+    <br/>
     <Label for="password">
         Password
         <%= form.password_field :password, required: true %>
     </Label>
+    <br/>
     <%= form.submit "Sign in" %>
 <% end %>

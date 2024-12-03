@@ -24,6 +24,12 @@
   border-radius: 8px;
   /* padding: 20px 20px; */
 
+  & .home-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+  }
 
   & .title {
     font-size: 1.8rem;
@@ -255,6 +261,11 @@
     color: rgb(110 110 110);
     margin-left: 10px;
     white-space: nowrap; /* Prevent date from wrapping */
+  }
+
+  & .add-article-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
   
 }

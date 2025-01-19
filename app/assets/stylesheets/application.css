@@ -33,14 +33,16 @@
 
   & .title {
     font-size: 1.8rem;
+    font-family: system-ui;
   }
 
   & .left {
     width: 500px;
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
     font-size: 1.2rem;
-  align-items: center;
+    align-items: center;
+
     & .logo {
       height: 70px;
     }
@@ -60,6 +62,7 @@
   border-radius: 5px;
   text-decoration: none;
   color: white;
+  font-family: system-ui;
 }
 
 .nav-button-linkedin {
@@ -104,12 +107,15 @@
     /* white-space: nowrap; */
     /* overflow: hidden; */
     text-overflow: ellipsis;
+    font-family: system-ui;
+    font-weight: 500;
     display: inline-block;
     max-width: 100%;
   }
 
   & .date {
     font-size: medium;
+    font-family: system-ui;
     color: rgb(110 110 110);
   }
 
@@ -241,6 +247,8 @@
   
   & .title {
     color: black;
+    font-family: system-ui;
+    font-weight: 500;
     text-decoration: none;
     white-space: nowrap; /* Prevent text from wrapping */
     overflow: hidden; /* Hide text that overflows */

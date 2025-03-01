@@ -37,6 +37,8 @@ services:
     depends_on:
       - database
     logging: *logging
+    volumes:
+      - dev_blog_storage:/app/storage
 
   nginx:
     image: nginx:latest
@@ -51,4 +53,5 @@ services:
 
 volumes:
   dev_blog_data:
+  dev_blog_storage:
 
